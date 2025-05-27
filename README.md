@@ -1,4 +1,4 @@
-# Proyek Asisten Anime - Elaina AI Waifu Assistant
+# Anime Assistant Project - Elaina AI Waifu Assistant
 
 ```
     ______     __         ______     __     __   __     ______
@@ -19,18 +19,18 @@
 
 ---
 
-Sebuah asisten AI waifu bernama **Elaina** yang dapat berkomunikasi melalui suara dengan teknologi Speech-to-Text (STT), Text-to-Speech (TTS), dan AI conversation menggunakan Google Gemini API. Elaina dapat berbicara dengan suara yang diconvert menggunakan RVC (Real-time Voice Conversion) untuk memberikan pengalaman waifu yang lebih imersif.
+An AI waifu assistant named **Elaina** that can communicate through voice using Speech-to-Text (STT), Text-to-Speech (TTS), and AI conversation powered by Google Gemini API. Elaina can speak with voice converted using RVC (Real-time Voice Conversion) to provide a more immersive waifu experience.
 
-## 🌟 Fitur Utama
+## 🌟 Key Features
 
-- **🎤 Speech-to-Text (STT)**: Mendengarkan input suara pengguna menggunakan Google Speech Recognition
-- **🧠 AI Conversation**: Powered by Google Gemini 1.5 Flash dengan persona Elaina yang ramah dan ceria
-- **🗣️ Text-to-Speech (TTS)**: Menggunakan Edge-TTS sebagai base voice
-- **🎵 Voice Conversion**: RVC (Real-time Voice Conversion) untuk mengubah suara menjadi karakter Elaina
-- **💬 Memory Chat**: Menyimpan riwayat percakapan dalam sesi yang sama
-- **🔇 ALSA Error Suppression**: Mengatasi error ALSA pada sistem Linux
+- **🎤 Speech-to-Text (STT)**: Listens to user voice input using Google Speech Recognition
+- **🧠 AI Conversation**: Powered by Google Gemini 1.5 Flash with Elaina's friendly and cheerful persona
+- **🗣️ Text-to-Speech (TTS)**: Uses Edge-TTS as base voice
+- **🎵 Voice Conversion**: RVC (Real-time Voice Conversion) to transform voice into Elaina character
+- **💬 Chat Memory**: Stores conversation history within the same session
+- **🔇 ALSA Error Suppression**: Handles ALSA errors on Linux systems
 
-## 🚀 Teknologi yang Digunakan
+## 🚀 Technologies Used
 
 - **AI Engine**: Google Gemini 1.5 Flash API
 - **Speech Recognition**: Google Speech Recognition API (via `speech_recognition`)
@@ -40,42 +40,42 @@ Sebuah asisten AI waifu bernama **Elaina** yang dapat berkomunikasi melalui suar
 - **Language**: Python 3.8+
 - **Environment Management**: python-dotenv
 
-## 📋 Prasyarat
+## 📋 Prerequisites
 
-Pastikan sistem Anda memiliki:
+Make sure your system has:
 
-### Software Dasar
+### Basic Software
 
-- **Python 3.8+** dengan pip
-- **MPV player** untuk audio playback
-- **Mikrofon** yang berfungsi
-- **Speaker/Headphone** untuk output audio
+- **Python 3.8+** with pip
+- **MPV player** for audio playback
+- **Working microphone**
+- **Speakers/Headphones** for audio output
 
-### Sistem Linux (Recommended)
+### Linux System (Recommended)
 
-- ALSA libraries (biasanya sudah terinstall)
-- PulseAudio atau ALSA untuk audio
+- ALSA libraries (usually pre-installed)
+- PulseAudio or ALSA for audio
 
-### Dependencies Python
+### Python Dependencies
 
-Lihat file `requirements.txt` untuk daftar lengkap dependencies.
+See `requirements.txt` file for complete list of dependencies.
 
-## 🛠️ Instalasi
+## 🛠️ Installation
 
 ### 1. Clone Repository
 
 ```bash
-git clone [URL_REPOSITORY]
+git clone [REPOSITORY_URL]
 cd ProyekAsistenAnime
 ```
 
-### 2. Install Dependencies Python
+### 2. Install Python Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Dependencies utama yang dibutuhkan:
+Main dependencies required:
 
 ```bash
 pip install google-generativeai python-dotenv speech_recognition edge-tts emoji
@@ -96,93 +96,93 @@ sudo pacman -S mpv
 
 ### 4. Setup RVC (Real-time Voice Conversion)
 
-- Download dan setup **Mangio-RVC-Fork** di direktori `rvc_workspace/`
-- Siapkan model Elaina (`Elaina.pth`) dan index file
-- Pastikan virtual environment RVC aktif di `rvc_workspace/Mangio-RVC-Fork/venv-rvc-mangio/`
+- Download and setup **Mangio-RVC-Fork** in `rvc_workspace/` directory
+- Prepare Elaina model (`Elaina.pth`) and index file
+- Ensure RVC virtual environment is active in `rvc_workspace/Mangio-RVC-Fork/venv-rvc-mangio/`
 
-### 5. Konfigurasi Environment
+### 5. Environment Configuration
 
 ```bash
 cp .env.example .env
 ```
 
-Edit file `.env` dan tambahkan:
+Edit `.env` file and add:
 
 ```env
 GEMINI_API_KEY=your_google_gemini_api_key_here
 ```
 
-### 6. Test Mikrofon
+### 6. Test Microphone
 
 ```bash
 python cek_mikrofon.py
 ```
 
-Catat index mikrofon yang ingin digunakan dan sesuaikan di `stt_service.py`.
+Note the microphone index you want to use and adjust it in `stt_service.py`.
 
-## 🎯 Cara Penggunaan
+## 🎯 Usage
 
-### 1. Jalankan Asisten
+### 1. Run Assistant
 
 ```bash
 python -m app.main
 ```
 
-### 2. Berinteraksi dengan Elaina
+### 2. Interact with Elaina
 
-- **Mulai berbicara** setelah mendengar prompt "Saya mendengarkan..."
-- **Tunggu respons** dari Elaina (teks + suara RVC)
-- **Ucapkan "stop"** untuk mengakhiri percakapan
+- **Start speaking** after hearing the prompt "I'm listening..."
+- **Wait for response** from Elaina (text + RVC voice)
+- **Say "stop"** to end the conversation
 
-### 3. Troubleshooting Audio
+### 3. Audio Troubleshooting
 
-Jika ada masalah dengan mikrofon:
+If there are microphone issues:
 
 ```bash
-# Cek daftar mikrofon
+# Check microphone list
 python cek_mikrofon.py
 
-# Edit device_idx di stt_service.py sesuai hasil
+# Edit device_idx in stt_service.py according to results
 ```
 
-## 🏗️ Struktur Proyek
+## 🏗️ Project Structure
 
 ```
 ProyekAsistenAnime/
 ├── app/
 │   ├── __init__.py          # Package initialization
-│   ├── main.py              # Entry point aplikasi
-│   ├── config.py            # Konfigurasi sistem prompt Elaina
-│   ├── config_loader.py     # Loader konfigurasi dan API key
-│   ├── gemini_service.py    # Service untuk Google Gemini API
+│   ├── main.py              # Application entry point
+│   ├── config.py            # Elaina system prompt configuration
+│   ├── config_loader.py     # Configuration and API key loader
+│   ├── gemini_service.py    # Google Gemini API service
 │   ├── stt_service.py       # Speech-to-Text service
 │   └── tts_service.py       # Text-to-Speech + RVC service
 ├── rvc_workspace/
 │   └── Mangio-RVC-Fork/     # RVC installation directory
-├── .env                     # Environment variables (tidak dicommit)
-├── .env.example             # Template environment variables
+├── .env                     # Environment variables (not committed)
+├── .env.example             # Environment variables template
 ├── requirements.txt         # Python dependencies
-├── cek_mikrofon.py         # Utility untuk cek mikrofon
-├── buat_audio_tes.py       # Utility untuk test edge-tts
-├── tes_gemini.py           # Utility untuk test Gemini API
-└── README.md               # Dokumentasi ini
+├── cek_mikrofon.py         # Utility to check microphone
+├── buat_audio_tes.py       # Utility to test edge-tts
+├── tes_gemini.py           # Utility to test Gemini API
+└── README.md               # This documentation
 ```
 
-## ⚙️ Konfigurasi
+## ⚙️ Configuration
 
-### Persona Elaina
+### Elaina Persona
 
-Edit `app/config.py` untuk mengubah kepribadian Elaina:
+Edit `app/config.py` to modify Elaina's personality:
 
 ```python
 SYSTEM_PROMPT = """
-Kamu adalah Elaina, sebuah asisten AI waifu yang ramah, ceria, dan sangat membantu...
+You are Elaina, a friendly, cheerful, and very helpful AI waifu assistant...
 """
 ```
 
-### Parameter RVC
+### RVC Parameters
 
-Edit `app/tts_service.py` untuk fine-tuning suara Elaina:
+Edit `app/tts_service.py` for fine-tuning Elaina's voice:
 
 ```python
 TRANSPOSE_VAL = "0"           # Pitch adjustment
@@ -193,63 +193,63 @@ PROTECTION_VAL = "0.33"      # Voice protection
 
 ### STT Configuration
 
-Edit `app/stt_service.py` untuk pengaturan mikrofon:
+Edit `app/stt_service.py` for microphone settings:
 
 ```python
-device_idx = 10              # Index mikrofon Anda
-timeout_detik = 5            # Timeout detection
-phrase_limit_detik = 50      # Batas waktu bicara
+device_idx = 10              # Your microphone index
+timeout_detik = 5            # Detection timeout
+phrase_limit_detik = 50      # Speaking time limit
 ```
 
 ## 🐛 Troubleshooting
 
-### Error ALSA (Linux)
+### ALSA Errors (Linux)
 
-Error ALSA sudah diatasi dengan error handler suppression di kode.
+ALSA errors are already handled with error suppression in the code.
 
-### Mikrofon tidak terdeteksi
+### Microphone Not Detected
 
 ```bash
-# Cek permission mikrofon
+# Check microphone permissions
 sudo usermod -a -G audio $USER
 
 # Restart audio service
 pulseaudio -k && pulseaudio --start
 ```
 
-### RVC tidak berfungsi
+### RVC Not Working
 
-- Pastikan path `RVC_DIR` dan `RVC_PYTHON_EXEC` benar di `tts_service.py`
-- Cek model `Elaina.pth` dan index file sudah ada
-- Test RVC secara manual terlebih dahulu
+- Ensure `RVC_DIR` and `RVC_PYTHON_EXEC` paths are correct in `tts_service.py`
+- Check that `Elaina.pth` model and index file exist
+- Test RVC manually first
 
 ### Gemini API Error
 
-- Pastikan `GEMINI_API_KEY` sudah benar di file `.env`
-- Cek quota API Gemini Anda
-- Pastikan koneksi internet stabil
+- Ensure `GEMINI_API_KEY` is correct in `.env` file
+- Check your Gemini API quota
+- Ensure stable internet connection
 
-## 🤝 Kontribusi
+## 🤝 Contributing
 
-1. Fork repository ini
-2. Buat branch fitur baru (`git checkout -b feature/AmazingFeature`)
-3. Commit perubahan (`git commit -m 'Add some AmazingFeature'`)
-4. Push ke branch (`git push origin feature/AmazingFeature`)
-5. Buat Pull Request
+1. Fork this repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Create a Pull Request
 
-## 📝 Lisensi
+## 📝 License
 
-Proyek ini dilisensikan di bawah [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE).
 
 ## 🙏 Credits & Acknowledgments
 
-- **Google Gemini API** untuk AI conversation engine
-- **Microsoft Edge-TTS** untuk base voice synthesis
-- **Mangio-RVC-Fork** untuk real-time voice conversion
-- **SpeechRecognition library** untuk STT functionality
-- **Komunitas AI Indonesia** untuk dukungan dan feedback
+- **Google Gemini API** for AI conversation engine
+- **Microsoft Edge-TTS** for base voice synthesis
+- **Mangio-RVC-Fork** for real-time voice conversion
+- **SpeechRecognition library** for STT functionality
+- **Indonesian AI Community** for support and feedback
 
-## 📞 Kontak
+## 📞 Contact
 
 - **Developer**: Fajar
 - **Project**: Anime Assistant Elaina
@@ -257,6 +257,6 @@ Proyek ini dilisensikan di bawah [MIT License](LICENSE).
 
 ---
 
-⭐ **Jika Elaina membantu Anda, jangan lupa berikan star di repository ini!**
+⭐ **If Elaina helps you, don't forget to give this repository a star!**
 
-_"Halo Fajar! Ada yang bisa saya bantu hari ini?" - Elaina_ 💫
+_"Hello Fajar! Is there anything I can help you with today?" - Elaina_ 💫
