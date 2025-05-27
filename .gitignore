@@ -1,0 +1,17 @@
+# Lingkungan Virtual
+venv-asisten/
+*/venv-asisten/
+*.venv
+.venv
+
+# File .env (berisi informasi sensitif)
+.env
+*.env
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# VS Code
+.vscode/
