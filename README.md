@@ -24,7 +24,7 @@ An AI waifu assistant named **Elaina** that can communicate through voice using 
 ## 🌟 Key Features
 
 - **🎤 Speech-to-Text (STT)**: Listens to user voice input using Google Speech Recognition
-- **🧠 AI Conversation**: Powered by Google Gemini 1.5 Flash with Elaina's friendly and cheerful persona
+- **🧠 AI Conversation**: Powered By Google Gemini 1.5 Flash with Elaina's friendly and cheerful persona
 - **🗣️ Text-to-Speech (TTS)**: Uses Edge-TTS as base voice
 - **🎵 Voice Conversion**: RVC (Real-time Voice Conversion) to transform voice into Elaina character
 - **💬 Chat Memory**: Stores conversation history within the same session
